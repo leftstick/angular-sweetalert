@@ -1,6 +1,10 @@
 ::selection:window-inactive {
     background: #999;
 }
+
+pre[class*="language-"]{
+    word-wrap: normal;
+}
 .footer{
     text-align: center;
 }
