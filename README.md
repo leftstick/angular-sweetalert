@@ -14,7 +14,7 @@ An angular service which expose sweetalert in angular way.
 
 ```powershell
 bower install sweetalert --save
-bower install angular-sweetalert --save
+bower install angular-h-sweetalert --save
 ```
 
 ## Import ##
