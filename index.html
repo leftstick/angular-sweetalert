@@ -1,79 +1,166 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="angular-sweetalert : An angular directive which expose sweetalert in angular way">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>angular-sweetalert</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/leftstick/angular-sweetalert">View on GitHub</a>
-
-          <h1 id="project_title">angular-sweetalert</h1>
-          <h2 id="project_tagline">An angular directive which expose sweetalert in angular way</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/leftstick/angular-sweetalert/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/leftstick/angular-sweetalert/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<html lang="en" ng-app="demo">
+    <head>
+        <meta charset="UTF-8">
+        <title>DEMO</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="yes"/>
+        <meta name="renderer" content="webkit"/>
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <link rel="stylesheet" href="libs/prism.css"/>
+        <link rel="stylesheet" type="text/css" href="libs/amazeui.min.css">
+        <link rel="stylesheet" type="text/css" href="libs/sweet-alert.css">
+        <link rel="stylesheet" type="text/css" href="demo.css">
+    </head>
+    <body ng-controller="demoController">
+        <div class="get">
+            <div class="am-g">
+                <div class="col-lg-12">
+                    <h1 class="get-title">angular-sweetalert</h1>
+                    <p>
+                    usage
+                    </p>
+                    <p>
+                    <a href="https://github.com/leftstick/angular-sweetalert" class="am-btn am-btn-sm get-btn">Check Github</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="am-g am-container">
+                <div class="col-lg-12">
+                    <h2 class="detail-h2">Getting Started</h2>
+                    <div class="am-g">
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-gavel am-icon-sm"></i>
+                            Basic example
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.basic = function() {
+        sweet.show('Simple right?');
+    };
+});
 </code></pre>
+                            <button ng-click="basic()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-navicon am-icon-sm"></i>
+                            With title
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.title = function() {
+        sweet.show('It\'s title', 'Can you see me?');
+    };
+});
+</code></pre>
+                            <button ng-click="title()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-smile-o am-icon-sm"></i>
+                            Successful
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.success = function() {
+        sweet.show('Amazing', 'You\'ve done it', 'success');
+    };
+});
+</code></pre>
+                            <button ng-click="success()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-bolt am-icon-sm"></i>
+                            Failure
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.fail = function() {
+        sweet.show('Oops...', 'Can\'t believe it\'s you', 'error');
+    };
+});
+</code></pre>
+                            <button ng-click="fail()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-question-circle am-icon-sm"></i>
+                            Confirm
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.confirm = function() {
+        sweet.show({
+            title: 'Confirm',
+            text: 'Delete this file?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false
+        }, function() {
+            sweet.show('Deleted!', 'The file has been deleted.', 'success');
+        });
+    };
+});
+</code></pre>
+                            <button ng-click="confirm()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-check am-icon-sm"></i>
+                            Custom icon
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.custom = function() {
+        sweet.show({
+            title: 'Success',
+            text: 'Congratulations!',
+            imageUrl: 'img/cus_suc.png'
+        });
+    };
+});
+</code></pre>
+                            <button ng-click="custom()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">angular-sweetalert maintained by <a href="https://github.com/leftstick">leftstick</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; 2014 Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. by <a href="http://leftstick.github.io/" target="_blank">Howard.Zuo</a>.</p>
+        </footer>
+        <script src="libs/prism.js"></script>
+        <script type="text/javascript" src="libs/sweet-alert.min.js"></script>
+        <script type="text/javascript" src="libs/angular.min.js"></script>
+        <script type="text/javascript" src="ngSweetAlert.js"></script>
+        <script type="text/javascript" src="demo.js"></script>
+    </body>
 </html>
