@@ -50,6 +50,12 @@ demo.controller('demoController', function($scope, sweet) {
 
 See full featured demo: http://leftstick.github.io/angular-sweetalert/
 
+
+
+## LICENSE ##
+
+[MIT License](https://raw.githubusercontent.com/leftstick/angular-sweetalert/master/LICENSE)
+
 [angular-url]: https://angularjs.org/
 [sweetalert-url]: http://tristanedwards.me/sweetalert
 [google-fonts-url]: http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300
