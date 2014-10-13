@@ -1,4 +1,4 @@
-angular-sweetalert
+# angular-sweetalert ![](http://img.shields.io/badge/bower_module-v1.0.0-green.svg) #
 ==================
 
 An angular service which expose sweetalert in angular way.
