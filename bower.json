@@ -1,6 +1,6 @@
 {
   "name": "angular-sweetalert",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/leftstick/angular-sweetalert",
   "description": "An angular directive which expose sweetalert in angular way",
   "keywords": [
@@ -20,6 +20,6 @@
   ],
   "dependencies": {
     "angular": "1.2.26",
-    "sweetalert": "~0.1.2"
+    "sweetalert": "~0.2.0"
   }
 }
