@@ -1,8 +1,13 @@
 {
   "name": "angular-sweetalert",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "https://github.com/leftstick/angular-sweetalert",
   "description": "An angular directive which expose sweetalert in angular way",
+  "main": [
+    "./dist/ngSweetAlert.js",
+    "./dist/ngSweetAlert.min.js",
+    "./dist/ngSweetAlert.min.js.map"
+  ],
   "keywords": [
     "angular",
     "sweetalert"
