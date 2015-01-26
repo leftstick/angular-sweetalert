@@ -1,6 +1,6 @@
 {
   "name": "angular-sweetalert",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "An angular directive which expose sweetalert in angular way",
   "repository": {
     "type": "git",
