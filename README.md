@@ -1,4 +1,4 @@
-# angular-sweetalert ![](http://img.shields.io/badge/bower_module-v1.4.0-green.svg) #
+# angular-sweetalert ![](http://img.shields.io/badge/bower_module-v1.4.1-green.svg) #
 ==================
 
 An angular service which expose sweetalert in angular way.
@@ -42,6 +42,10 @@ var demo = angular.module('demo', ['hSweetAlert']);
 demo.controller('demoController', function($scope, sweet) {
     $scope.basic = function() {
         sweet.show('Simple right?');
+    };
+
+    $scope.checkIfShown = function(){
+        alert(sweet.isShown());
     };
 });
 ```
