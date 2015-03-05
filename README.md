@@ -1,4 +1,4 @@
-# angular-sweetalert ![](http://img.shields.io/badge/bower_module-v1.3.0-green.svg) #
+# angular-sweetalert ![](http://img.shields.io/badge/bower_module-v1.4.0-green.svg) #
 ==================
 
 An angular service which expose sweetalert in angular way.
@@ -7,8 +7,6 @@ An angular service which expose sweetalert in angular way.
 
 - [angular][angular-url]
 - [sweetalert][sweetalert-url]
-
-> Since [sweetalert][sweetalert-url] import [google-fonts][google-fonts-url], developer in China may found issue while loading the [sweet-alert.css](https://github.com/t4t5/sweetalert/blob/master/lib/sweet-alert.css). Just delete the first line from it to solve the problem or download the fonts.
 
 ## Install ##
 
