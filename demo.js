@@ -1,6 +1,11 @@
 var demo = angular.module('demo', ['hSweetAlert']);
 
-demo.controller('demoController', function($scope, sweet) {
+demo.controller('demoController', function($scope, sweet, $interval) {
+
+    $interval(function() {
+        $scope.isShown = sweet.isShown();
+    }, 200);
+
     $scope.basic = function() {
         sweet.show('Simple right?');
     };
