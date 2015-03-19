@@ -18,16 +18,12 @@
 
             this.isShown = function() {
                 var sweetAlertEl;
-                angular.forEach(angular.element(document.body).find('div'), function(el) {
-                    var $el = angular.element(el);
-                    if ($el.hasClass('sweet-alert')) {
-                        sweetAlertEl = $el;
-                    }
+
+                angular.forEach(document.getElementsByClassName('sweet-alert'), function(el) {
+                    sweetAlertEl = angular.element(el);
                 });
-                if (!sweetAlertEl) {
-                    return false;
-                }
-                return sweetAlertEl.hasClass('visible');
+
+                return sweetAlertEl && sweetAlertEl.hasClass('visible');
             };
         };
 
