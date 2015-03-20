@@ -1,6 +1,6 @@
 {
   "name": "angular-sweetalert",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "homepage": "https://github.com/leftstick/angular-sweetalert",
   "description": "An angular directive which expose sweetalert in angular way",
   "main": [
