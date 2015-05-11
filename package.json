@@ -1,6 +1,6 @@
 {
   "name": "angular-sweetalert",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "An angular directive which expose sweetalert in angular way",
   "repository": {
     "type": "git",
@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/leftstick/angular-sweetalert",
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "gulp-rename": "^1.2.0",
-    "gulp-sourcemaps": "^1.2.4",
-    "gulp-uglify": "^1.0.1",
-    "gulp-webserver": "^0.8.3"
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-webserver": "^0.9.1"
   }
 }

@@ -12,7 +12,8 @@
         <meta http-equiv="Cache-Control" content="no-siteapp" />
         <link rel="stylesheet" href="libs/prism.css"/>
         <link rel="stylesheet" type="text/css" href="libs/amazeui.min.css">
-        <link rel="stylesheet" type="text/css" href="libs/sweet-alert.css">
+        <link rel="stylesheet" type="text/css" href="bower/sweetalert/lib/sweet-alert.css">
+        <link id="theme" rel="stylesheet" type="text/css" href="libs/themes/facebook/facebook.css">
         <link rel="stylesheet" type="text/css" href="demo.css">
     </head>
     <body ng-controller="demoController">
@@ -21,7 +22,7 @@
                 <div class="col-lg-12">
                     <h1 class="get-title">angular-sweetalert</h1>
                     <p>
-                    usage
+                    usage v1.4.3
                     </p>
                     <p>
                     <a href="https://github.com/leftstick/angular-sweetalert" class="am-btn am-btn-sm get-btn">Check Github</a>
@@ -34,6 +35,25 @@
                 <div class="col-lg-12">
                     <h2 class="detail-h2">Getting Started({{ isShown ? 'Alert Shown' : 'Alert Hidden' }})</h2>
                     <div class="am-g">
+
+                        <div class="col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-gavel am-icon-sm"></i>
+                            Themes
+                            </h3>
+                            <div class="am-btn-group">
+                               <button type="button" class="am-btn am-btn-secondary" ng-class="{'am-active': theme === 'facebook'}" ng-click="changeTheme('facebook', $event)">facebook</button>
+                               <button type="button" class="am-btn am-btn-secondary" ng-class="{'am-active': theme === 'google'}" ng-click="changeTheme('google', $event)">google</button>
+                               <button type="button" class="am-btn am-btn-secondary" ng-class="{'am-active': theme === 'twitter'}" ng-click="changeTheme('twitter', $event)">twitter</button>
+                               <button type="button" class="am-btn am-btn-secondary" ng-class="{'am-active': theme === 'default'}" ng-click="changeTheme('default', $event)">default</button>
+                            </div>
+                            <p class="detail-p">
+<pre><code class="language-markup">
+&lt;link rel="stylesheet" type="text/css" href="libs/themes/facebook/facebook.css"&gt;
+</code></pre>
+                            </p>
+                        </div>
+
                         <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
                             <h3 class="detail-h3">
                             <i class="am-icon-gavel am-icon-sm"></i>
@@ -131,6 +151,38 @@ demo.controller('demoController', function($scope, sweet) {
 
                         <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
                             <h3 class="detail-h3">
+                            <i class="am-icon-question-circle am-icon-sm"></i>
+                            Confirm-cancel
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.confirmCancel = function() {
+        sweet.show({
+            title: 'Confirm',
+            text: 'Delete this file?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function(isConfirm) {
+            if (isConfirm) {
+                sweet.show('Deleted!', 'The file has been deleted.', 'success');
+            }else{
+                sweet.show('Cancelled', 'Your imaginary file is safe :)', 'error');
+            }
+        });
+    };
+});
+</code></pre>
+                            <button ng-click="confirmCancel()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
                             <i class="am-icon-check am-icon-sm"></i>
                             Custom icon
                             </h3>
@@ -150,6 +202,83 @@ demo.controller('demoController', function($scope, sweet) {
                             </p>
                         </div>
 
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-check am-icon-sm"></i>
+                            html-message
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.html = function() {
+        sweet.show({
+            title: 'HTML &lt;small&gt;Title&lt;/small&gt;!',
+            text: 'A custom &lt;span style="color:#F8BB86"&gt;html&lt;span&gt; message.',
+            html: true
+        });
+    };
+});
+</code></pre>
+                            <button ng-click="html()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-check am-icon-sm"></i>
+                            auto-close
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.close = function() {
+        sweet.show({
+            title: 'Auto close alert!',
+            text: 'I will close in 2 seconds.',
+            timer: 2000,
+            showConfirmButton: false
+        });
+    };
+});
+</code></pre>
+                            <button ng-click="close()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-check am-icon-sm"></i>
+                            prompt
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+demo.controller('demoController', function($scope, sweet) {
+    $scope.prompt = function() {
+        sweet.show({
+            title: 'An input!',
+            text: 'Write something interesting:',
+            type: 'input',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: 'slide-from-top',
+            inputPlaceholder: 'Write something'
+        }, function(inputValue){
+            if (inputValue === false){
+                return false;
+            }
+            if (inputValue === '') {
+                sweet.showInputError('You need to write something!');
+                return false;
+            }
+            sweet.show('Nice!', 'You wrote: ' + inputValue, 'success');
+        });
+    };
+});
+</code></pre>
+                            <button ng-click="prompt()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -158,8 +287,8 @@ demo.controller('demoController', function($scope, sweet) {
             <p>&copy; 2014 Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. by <a href="http://leftstick.github.io/" target="_blank">Howard.Zuo</a>.</p>
         </footer>
         <script src="libs/prism.js"></script>
-        <script type="text/javascript" src="libs/sweet-alert.min.js"></script>
-        <script type="text/javascript" src="libs/angular.min.js"></script>
+        <script type="text/javascript" src="bower/sweetalert/lib/sweet-alert.min.js"></script>
+        <script type="text/javascript" src="bower/angular/angular.min.js"></script>
         <script type="text/javascript" src="ngSweetAlert.js"></script>
         <script type="text/javascript" src="demo.js"></script>
     </body>
