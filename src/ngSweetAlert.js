@@ -11,9 +11,15 @@
     var definition = function(sweetAlert) {
 
         var service = function() {
+
             this.show = function() {
                 var args = [].slice.call(arguments, 0);
                 sweetAlert.apply(undefined, args);
+            };
+
+            this.showInputError = function() {
+                var args = [].slice.call(arguments, 0);
+                sweetAlert.showInputError.apply(undefined, args);
             };
 
             this.isShown = function() {
