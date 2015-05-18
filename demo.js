@@ -21,8 +21,10 @@ demo.controller('demoController', function($scope, sweet, $interval) {
         }
     };
 
+    $scope.alertMsg = 'SweetAlert Displayed';
+
     $interval(function() {
-        $scope.isShown = sweet.isShown();
+        $scope.alertMsg = sweet.isShown() ? 'SweetAlert Displayed' : 'SweetAlert Hidden';
     }, 200);
 
     $scope.basic = function() {
