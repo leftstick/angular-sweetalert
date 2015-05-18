@@ -33,7 +33,9 @@
         <div class="detail">
             <div class="am-g am-container">
                 <div class="col-lg-12">
-                    <h2 class="detail-h2">Getting Started({{ isShown ? 'Alert Shown' : 'Alert Hidden' }})</h2>
+                    <div class="am-alert" data-am-alert style="text-align: center;">
+                      {{ alertMsg }}
+                    </div>
                     <div class="am-g">
 
                         <div class="col-sm-12 detail-mb">
@@ -48,8 +50,8 @@
                                <button type="button" class="am-btn am-btn-secondary" ng-class="{'am-active': theme === 'default'}" ng-click="changeTheme('default', $event)">default</button>
                             </div>
                             <p class="detail-p">
-<pre><code class="language-markup">
-&lt;link rel="stylesheet" type="text/css" href="libs/themes/facebook/facebook.css"&gt;
+<pre><code class="language-markup" ng-if="theme !== 'default'">
+&lt;link rel="stylesheet" type="text/css" href="libs/themes/{{ theme }}/{{ theme }}.css"&gt;
 </code></pre>
                             </p>
                         </div>
