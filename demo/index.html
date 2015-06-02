@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="libs/prism.css"/>
         <link rel="stylesheet" type="text/css" href="libs/amazeui.min.css">
         <link rel="stylesheet" type="text/css" href="bower/sweetalert/dist/sweetalert.css">
-        <link id="theme" rel="stylesheet" type="text/css" href="libs/themes/facebook/facebook.css">
+        <link id="theme" rel="stylesheet" type="text/css" href="bower/sweetalert/themes/facebook/facebook.css">
         <link rel="stylesheet" type="text/css" href="demo.css">
     </head>
     <body ng-controller="demoController">
@@ -139,7 +139,7 @@ demo.controller('demoController', function($scope, sweet) {
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: 'Yes, delete it!',
             closeOnConfirm: false
         }, function() {
             sweet.show('Deleted!', 'The file has been deleted.', 'success');
@@ -166,7 +166,7 @@ demo.controller('demoController', function($scope, sweet) {
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: 'Yes, delete it!',
             closeOnConfirm: false,
             closeOnCancel: false
         }, function(isConfirm) {

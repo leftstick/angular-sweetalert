@@ -4,3 +4,5 @@ node_modules/
 #bower
 demo/bower/
 demo/ngSweetAlert.js
+
+.DS_Store

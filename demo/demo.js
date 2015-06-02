@@ -1,3 +1,5 @@
+'use strict';
+
 var demo = angular.module('demo', ['hSweetAlert']);
 
 demo.controller('demoController', function($scope, sweet, $interval) {
@@ -17,7 +19,7 @@ demo.controller('demoController', function($scope, sweet, $interval) {
             }
         });
         if (theme !== 'default') {
-            angular.element(document.head).append('<link id="theme" rel="stylesheet" type="text/css" href="libs/themes/' + theme + '/' + theme + '.css">');
+            angular.element(document.head).append('<link id="theme" rel="stylesheet" type="text/css" href="bower/sweetalert/themes/' + theme + '/' + theme + '.css">');
         }
     };
 
@@ -50,7 +52,7 @@ demo.controller('demoController', function($scope, sweet, $interval) {
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: 'Yes, delete it!',
             closeOnConfirm: false
         }, function() {
             sweet.show('Deleted!', 'The file has been deleted.', 'success');
@@ -64,7 +66,7 @@ demo.controller('demoController', function($scope, sweet, $interval) {
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: 'Yes, delete it!',
             closeOnConfirm: false,
             closeOnCancel: false
         }, function(isConfirm) {
