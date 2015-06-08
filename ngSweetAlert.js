@@ -17,10 +17,14 @@
                 sweetAlert.apply(undefined, args);
             };
 
-            this.showInputError = function() {
-                var args = [].slice.call(arguments, 0);
-                sweetAlert.showInputError.apply(undefined, args);
-            };
+            angular.forEach(
+                ['showInputError', 'close'],
+                function (func) {
+                    this[func] = function() {
+                        var args = [].slice.call(arguments, 0);
+                        sweetAlert[func].apply(undefined, args);
+                    };
+                }, this);
 
             this.isShown = function() {
                 var sweetAlertEl;
