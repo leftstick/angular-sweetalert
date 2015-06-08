@@ -1,5 +1,5 @@
 {
-  "name": "angular-sweetalert",
+  "name": "angular-h-sweetalert",
   "version": "1.4.5",
   "description": "An angular directive which expose sweetalert in angular way",
   "main": "./src/ngSweetAlert.js",
