@@ -2,6 +2,7 @@
   "name": "angular-sweetalert",
   "version": "1.4.5",
   "description": "An angular directive which expose sweetalert in angular way",
+  "main": "./src/ngSweetAlert.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/leftstick/angular-sweetalert.git"
