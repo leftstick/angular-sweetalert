@@ -1,5 +1,8 @@
-# angular-sweetalert ![](http://img.shields.io/badge/bower_module-v1.4.5-green.svg) #
+# angular-sweetalert #
 ==================
+
+[![NPM version][npm-image]][npm-url]
+![][david-url]
 
 An angular service which expose sweetalert in angular way.
 
@@ -61,3 +64,7 @@ See full featured demo: http://leftstick.github.io/angular-sweetalert/
 [angular-url]: https://angularjs.org/
 [sweetalert-url]: http://tristanedwards.me/sweetalert
 [google-fonts-url]: http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300
+
+[npm-url]: https://npmjs.org/package/angular-h-sweetalert
+[npm-image]: https://badge.fury.io/js/angular-h-sweetalert.png
+[david-url]: https://david-dm.org/leftstick/angular-h-sweetalert.png

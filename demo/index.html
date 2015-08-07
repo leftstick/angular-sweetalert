@@ -72,7 +72,7 @@ demo.controller('demoController', function($scope, sweet) {
                             <button ng-click="basic()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
                             </p>
                         </div>
-                        
+
                         <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
                             <h3 class="detail-h3">
                             <i class="am-icon-navicon am-icon-sm"></i>
@@ -278,6 +278,32 @@ demo.controller('demoController', function($scope, sweet) {
 });
 </code></pre>
                             <button ng-click="prompt()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 detail-mb">
+                            <h3 class="detail-h3">
+                            <i class="am-icon-gavel am-icon-sm"></i>
+                            Load on Confirm
+                            </h3>
+                            <p class="detail-p">
+<pre><code class="language-javascript">
+$scope.loadOnConfirm = function() {
+    sweet.show({
+        title: 'Ajax request example',
+        text: 'Submit to run ajax request',
+        type: 'info',
+        showCancelButton: true,
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true
+    }, function(inputValue) {
+        $timeout(function() {
+            sweet.show('Ajax request finished!');
+        }, 2000);
+    });
+};
+</code></pre>
+                            <button ng-click="loadOnConfirm()" type="button" class="am-btn am-btn-warning am-btn-block" >Try it!</button>
                             </p>
                         </div>
 

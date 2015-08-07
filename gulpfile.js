@@ -12,7 +12,7 @@ gulp.task('copyDist', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('demo', ['copyDemo'], function() {
+gulp.task('dev', ['copyDemo'], function() {
     var webserver = require('gulp-webserver');
     return gulp.src('./demo/')
         .pipe(webserver({
@@ -27,17 +27,10 @@ gulp.task('demo', ['copyDemo'], function() {
 
 gulp.task('dist', ['copyDist'], function() {
     var uglify = require('gulp-uglify');
-    var sourcemaps = require('gulp-sourcemaps');
     var rename = require('gulp-rename');
 
     return gulp.src('./dist/ngSweetAlert.js')
-        .pipe(sourcemaps.init())
-        .pipe(rename({
-            basename: 'ngSweetAlert.min'
-        }))
+        .pipe(rename({basename: 'ngSweetAlert.min'}))
         .pipe(uglify())
-        .pipe(sourcemaps.write('./', {
-            sourceRoot: '.'
-        }))
         .pipe(gulp.dest('./dist/'));
 });

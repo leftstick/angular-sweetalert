@@ -2,7 +2,7 @@
 
 var demo = angular.module('demo', ['hSweetAlert']);
 
-demo.controller('demoController', function($scope, sweet, $interval) {
+demo.controller('demoController', function($scope, sweet, $interval, $timeout) {
 
     $scope.theme = 'facebook';
 
@@ -121,6 +121,21 @@ demo.controller('demoController', function($scope, sweet, $interval) {
                 return false;
             }
             sweet.show('Nice!', 'You wrote: ' + inputValue, 'success');
+        });
+    };
+
+    $scope.loadOnConfirm = function() {
+        sweet.show({
+            title: 'Ajax request example',
+            text: 'Submit to run ajax request',
+            type: 'info',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true
+        }, function(inputValue) {
+            $timeout(function() {
+                sweet.show('Ajax request finished!');
+            }, 2000);
         });
     };
 });

@@ -2,7 +2,7 @@
  * angular-h-sweetalert is a simple wrapper of sweetalert.
  *
  * @author Howard.Zuo
- * @date   Jun 2th, 2015
+ * @date   Aug 7th, 2015
  *
  **/
 (function(angular, global) {
@@ -19,7 +19,7 @@
 
             angular.forEach(
                 ['showInputError', 'close'],
-                function (func) {
+                function(func) {
                     this[func] = function() {
                         var args = [].slice.call(arguments, 0);
                         sweetAlert[func].apply(undefined, args);
@@ -37,9 +37,12 @@
             };
         };
 
-        var mod = angular.module('hSweetAlert', []);
+        var modName = 'hSweetAlert';
+
+        var mod = angular.module(modName, []);
         mod.service('sweet', [service]);
 
+        return modName;
     };
 
     if (typeof exports === 'object') {
