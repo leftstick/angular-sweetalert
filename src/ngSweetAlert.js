@@ -2,55 +2,60 @@
  * angular-h-sweetalert is a simple wrapper of sweetalert.
  *
  * @author Howard.Zuo
- * @date   Aug 7th, 2015
+ * @date   Jan 30th, 2016
  *
  **/
-(function(angular, global) {
+(function(root, factory) {
     'use strict';
 
-    var definition = function(sweetAlert) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['angular', 'sweetalert'], function(angular, sweetalert) {
+            return factory(angular, sweetalert);
+        });
+    } else if (typeof module === 'object' && module.exports) {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like enviroments that support module.exports,
+        // like Node.
+        module.exports = factory(require('angular'), require('sweetalert'));
+    } else {
+        // Browser globals
+        factory(root.angular, root.sweetAlert);
+    }
+}(this, function(ng, sweet) {
+    'use strict';
 
-        var service = function() {
+    var service = function() {
 
-            this.show = function() {
-                var args = [].slice.call(arguments, 0);
-                sweetAlert.apply(undefined, args);
-            };
-
-            angular.forEach(
-                ['showInputError', 'close'],
-                function(func) {
-                    this[func] = function() {
-                        var args = [].slice.call(arguments, 0);
-                        sweetAlert[func].apply(undefined, args);
-                    };
-                }, this);
-
-            this.isShown = function() {
-                var sweetAlertEl;
-
-                angular.forEach(document.getElementsByClassName('sweet-alert'), function(el) {
-                    sweetAlertEl = angular.element(el);
-                });
-
-                return sweetAlertEl && sweetAlertEl.hasClass('visible');
-            };
+        this.show = function() {
+            var args = [].slice.call(arguments, 0);
+            sweet.apply(undefined, args);
         };
 
-        var modName = 'hSweetAlert';
+        ng.forEach(
+            ['showInputError', 'close'],
+            function(func) {
+                this[func] = function() {
+                    var args = [].slice.call(arguments, 0);
+                    sweet[func].apply(undefined, args);
+                };
+            }, this);
 
-        var mod = angular.module(modName, []);
-        mod.service('sweet', [service]);
+        this.isShown = function() {
+            var sweetAlertEl;
 
-        return modName;
+            ng.forEach(document.getElementsByClassName('sweet-alert'), function(el) {
+                sweetAlertEl = ng.element(el);
+            });
+
+            return sweetAlertEl && sweetAlertEl.hasClass('visible');
+        };
     };
 
-    if (typeof exports === 'object') {
-        module.exports = definition(require('sweetalert'));
-    } else if (typeof define === 'function' && define.amd) {
-        define(['sweetAlert'], definition);
-    } else {
-        definition(global.sweetAlert);
-    }
+    var modName = 'hSweetAlert';
 
-}(angular, window));
+    ng.module(modName, []).service('sweet', [service]);
+
+    return modName;
+
+}));

@@ -4,6 +4,8 @@
 ![][bower-url]
 [![NPM version][npm-image]][npm-url]
 ![][david-url]
+![][dt-url]
+![][license-url]
 
 An angular service which expose sweetalert in angular way.
 
@@ -15,14 +17,12 @@ An angular service which expose sweetalert in angular way.
 ## Install from bower ##
 
 ```powershell
-bower install sweetalert --save
 bower install angular-h-sweetalert --save
 ```
 
 ## Install from npm ##
 
 ```powershell
-npm install sweetalert --save
 npm install angular-h-sweetalert --save
 ```
 
@@ -73,7 +73,9 @@ See full featured demo: http://leftstick.github.io/angular-sweetalert/
 [sweetalert-url]: http://tristanedwards.me/sweetalert
 [google-fonts-url]: http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300
 
+[bower-url]: https://img.shields.io/bower/v/angular-h-sweetalert.svg
 [npm-url]: https://npmjs.org/package/angular-h-sweetalert
 [npm-image]: https://badge.fury.io/js/angular-h-sweetalert.png
 [david-url]: https://david-dm.org/leftstick/angular-h-sweetalert.png
-[bower-url]: https://img.shields.io/bower/v/angular-h-sweetalert.svg
+[dt-url]:https://img.shields.io/npm/dt/angular-h-sweetalert.svg
+[license-url]:https://img.shields.io/npm/l/angular-h-sweetalert.svg
