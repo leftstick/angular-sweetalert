@@ -70,7 +70,7 @@ See full featured demo: http://leftstick.github.io/angular-sweetalert/
 [MIT License](https://raw.githubusercontent.com/leftstick/angular-sweetalert/master/LICENSE)
 
 [angular-url]: https://angularjs.org/
-[sweetalert-url]: http://tristanedwards.me/sweetalert
+[sweetalert-url]: http://t4t5.github.io/sweetalert/
 [google-fonts-url]: http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300
 
 [bower-url]: https://img.shields.io/bower/v/angular-h-sweetalert.svg
