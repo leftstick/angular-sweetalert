@@ -1,0 +1,27 @@
+example {
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+}
+
+example .example {
+    display: flex;
+    flex-direction: row;
+}
+
+example .example .left-side {
+    width: 300px;
+    text-align: center;
+}
+
+example .example .left-side p {
+    margin: 15px 0;
+    font-size: 17px;
+    font-weight: 300;
+    color: #848d94;
+    line-height: 25px;
+}
+
+example .example pre {
+    margin-top: 55px;
+}

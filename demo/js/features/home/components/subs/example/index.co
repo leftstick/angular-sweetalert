@@ -1,0 +1,24 @@
+import './example.css';
+export default {
+    template: `
+        <div class="example">
+            <div class="left-side">
+                <p>A basic message</p>
+                <button ng-click="$ctrl.basic()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal('Any fool can use a computer');
+}]);</code></pre>
+        </div>
+    `,
+    controller: class {
+        /* @ngInject */
+        constructor(swal) {
+            this.swal = swal;
+        }
+
+        basic() {
+            this.swal('Any fool can use a computer');
+        }
+    }
+};

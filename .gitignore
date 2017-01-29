@@ -1,8 +1,5 @@
 #npm
 node_modules/
 
-#bower
-demo/bower/
-demo/ngSweetAlert.js
-
+#osx
 .DS_Store

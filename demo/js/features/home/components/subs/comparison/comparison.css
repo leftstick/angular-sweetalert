@@ -1,0 +1,83 @@
+comparison {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+comparison p {
+    max-width: 800px;
+    margin: 30px auto;
+    font-size: 17px;
+    font-weight: 100;
+    color: #848d94;
+    line-height: 25px;
+    text-align: left;
+}
+
+comparison p strong {
+    color: #848d94;
+    font-weight: 800;
+}
+
+comparison .compare {
+    width: 775px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+comparison .compare .vs-icon {
+    background-image: -webkit-image-set(url(../../../../../../img/vs_icon.png) 1x, url(../../../../../../img/vs_icon@2x.png) 2x);
+    background-image: image-set(url(../../../../../../img/vs_icon.png) 1x, url(../../../../../../img/vs_icon@2x.png) 2x);
+    background-repeat: no-repeat;
+    width: 69px;
+    height: 69px;
+    position: absolute;
+    left: 50%;
+    margin-left: -34px;
+    top: 50%;
+    margin-top: -70px;
+    z-index: 2;
+}
+
+comparison .showcase {
+    text-align: center;
+    background-color: #e2e5e8;
+    padding: 20px;
+    display: inline-block;
+    width: 383px;
+    vertical-align: top;
+    position: relative;
+}
+
+comparison .showcase pre {
+    margin-bottom: 30px;
+}
+
+comparison .showcase h4 {
+    font-size: 16px;
+    color: #b3b3b3;
+    line-height: 22px;
+    margin: 0 auto;
+    font-weight: 800;
+}
+
+comparison .showcase.sweet h4 {
+    color: #f77;
+}
+
+comparison .showcase button {
+    margin: 20px 0;
+}
+
+
+@media screen and (max-width: 780px) {
+    comparison .compare {
+        width: 385px;
+        flex-direction: column;
+    }
+    comparison .showcase.normal {
+        margin-bottom: 10px;
+    }
+}

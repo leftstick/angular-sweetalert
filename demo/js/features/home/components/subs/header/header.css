@@ -1,0 +1,22 @@
+header {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+header h1 {
+    font-size: 60px;
+    color: #a8a8a8;
+    white-space: nowrap;
+    margin: 50px auto;
+}
+
+header h2 {
+    font-size: 20px;
+    color: #a9b2bc;
+    line-height: 25px;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    display: block;
+    margin: 10px 0;
+}

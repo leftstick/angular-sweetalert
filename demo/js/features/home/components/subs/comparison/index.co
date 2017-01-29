@@ -1,0 +1,46 @@
+import './comparison.css';
+export default {
+    template: `
+        <p>Here’s a comparison of a standard error message. The first one uses the built-in <strong>alert</strong>-function, while the second is an angular wrapper of <strong>SweetAlert2</strong>.</p>
+        <div class="compare" highlight>
+            <div class="showcase normal">
+                <h4>Normal alert</h4>
+                <button ng-click="$ctrl.nativeError()">Show error message</button>
+                <pre><code class="javascript">alert('Oops! Something went wrong!')</code></pre>
+            </div>
+            
+            <div class="vs-icon"></div>
+
+            <div class="showcase sweet">
+                <h4>angular-h-sweetalert</h4>
+                <button ng-click="$ctrl.sweetAlert()">Show error message</button>
+
+                <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal(
+        'Oops...',
+        'Something went wrong!',
+        'error'
+    );
+}]);</code></pre>
+            </div>
+        </div>
+
+        <p>Pretty cool huh? SweetAlert2 automatically centers itself on the page and looks great no matter if you're using a desktop computer, mobile or tablet. It's even highly customizeable, as you can see below!</p>
+    `,
+    controller: class {
+        /* @ngInject */
+        constructor(swal) {
+            this.swal = swal;
+        }
+
+        nativeError() {
+            //eslint-disable-next-line
+            alert('Oops! Something went wrong!');
+        }
+
+        sweetAlert() {
+            this
+                .swal('Oops...', 'Something went wrong!', 'error');
+        }
+    }
+};

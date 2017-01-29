@@ -1,0 +1,16 @@
+import 'sweetalert2/dist/sweetalert2.min.css';
+import './home.css';
+
+export default {
+    template: `
+    <header></header>
+    <comparison></comparison>
+    <exampletitle></exampletitle>
+    <example highlight></example>
+    `,
+    controller: class {
+        /* @ngInject */
+        constructor() {}
+
+    }
+};
