@@ -1,3 +1,8 @@
+exampletitle {
+    display: block;
+    width: 100%;
+}
+
 exampletitle h3 {
     font-size: 28px;
     color: #c7ccd1;
@@ -18,4 +23,13 @@ exampletitle h3::after {
     position: absolute;
     margin-top: -50px;
     border-radius: 2px;
+}
+
+@media screen and (max-width: 700px) {
+    exampletitle h3::after {
+        width: auto;
+        left: 20px;
+        right: 20px;
+        margin-left: 0;
+    }
 }

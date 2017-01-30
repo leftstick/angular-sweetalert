@@ -20,3 +20,9 @@ header h2 {
     display: block;
     margin: 10px 0;
 }
+
+@media screen and (max-width: 640px) {
+    header h1 {
+        font-size: 30px;
+    }
+}

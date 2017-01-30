@@ -10,6 +10,160 @@ export default {
     swal('Any fool can use a computer');
 }]);</code></pre>
         </div>
+
+        <div class="example">
+            <div class="left-side">
+                <p>A title with a text under</p>
+                <button ng-click="$ctrl.titleWithText()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal(
+        'The Internet?',
+        'That thing is still around?',
+        'question'
+    );
+}]);</code></pre>
+        </div>
+
+        <div class="example">
+            <div class="left-side">
+                <p>A success message</p>
+                <button ng-click="$ctrl.successMessage()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+    );
+}]);</code></pre>
+        </div>
+
+        <div class="example">
+            <div class="left-side">
+                <p>A message with auto close timer</p>
+                <button ng-click="$ctrl.messageWithAutoClose()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal({
+        title: 'Auto close alert!',
+        text: 'I will close in 2 seconds.',
+        timer: 2000
+    })
+        .then(
+            function() {},
+            // handling the promise rejection
+            function(dismiss) {
+                if (dismiss === 'timer') {
+                    console.log('I was closed by the timer')
+                }
+            }
+    );
+}]);</code></pre>
+        </div>
+        
+        <div class="example">
+            <div class="left-side">
+                <p>Custom HTML description and buttons</p>
+                <button ng-click="$ctrl.customHtmlDescBtn()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal({
+        title: '&lt;i&gt;HTML&lt;/i&gt; &lt;u&gt;example&lt;/u&gt;',
+        type: 'info',
+        html: 'You can use <b>bold text</b>, ' +
+              '&lt;a href="//github.com/leftstick/angular-sweetalert"&gt;links&lt;/a&gt; ' +
+              'and other HTML tags',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonText: '&lt;i class="fa fa-thumbs-up"&gt;&lt;/i&gt; Great!',
+        cancelButtonText: '&lt;i class="fa fa-thumbs-down"&gt;&lt;/i&gt;'
+    })
+        .catch(dismiss => {
+            console.log('dismissed by ' + dismiss);
+        });
+}]);</code></pre>
+        </div>
+
+        <div class="example jquery">
+            <div class="left-side">
+                <p>jQuery HTML with custom animation</p>
+                <p>(<a href="https://daneden.github.io/animate.css/" target="_blank">Animate.css <i class="fa fa-external-link"></i></a>)</p>
+                <button ng-click="$ctrl.jqueryAnimation()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal({
+        title: 'jQuery HTML example',
+        html: $('&lt;div&gt;')
+            .addClass('some-class')
+            .text('jQuery is everywhere.'),
+        animation: false,
+        customClass: 'animated tada'
+    });
+}]);</code></pre>
+        </div>
+
+        <div class="example twolines">
+            <div class="left-side">
+                <p>A warning message, with a function attached to the "Confirm"-button...</p>
+                <button ng-click="$ctrl.warningWithFunctionConfirm()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal({
+        title: 'Are you sure?',
+        text: 'You would not be able to revert this!',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then(() => {
+        swal(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        );
+    });
+}]);</code></pre>
+        </div>
+
+        <div class="example twolines">
+            <div class="left-side">
+                <p>... and by passing a parameter, you can execute something else for "Cancel".</p>
+                <button ng-click="$ctrl.executeForCancel()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal({
+        title: 'Are you sure?',
+        text: 'You would not be able to revert this!',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: false
+    }).then(() => {
+        swal(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        );
+    }, dismiss => {
+        // dismiss can be 'cancel', 'overlay',
+        // 'close', and 'timer'
+        if (dismiss === 'cancel') {
+            swal(
+                'Cancelled',
+                'Your imaginary file is safe :)',
+                'error'
+            );
+        }
+    });
+}]);</code></pre>
+        </div>
     `,
     controller: class {
         /* @ngInject */
@@ -20,5 +174,110 @@ export default {
         basic() {
             this.swal('Any fool can use a computer');
         }
+
+        titleWithText() {
+            this.swal('The Internet?', 'That thing is still around?', 'question');
+        }
+
+        successMessage() {
+            this.swal('Good job!', 'You clicked the button!', 'success');
+        }
+
+        messageWithAutoClose() {
+            this.swal({
+                title: 'Auto close alert!',
+                text: 'I will close in 2 seconds.',
+                timer: 2000
+            })
+                .then(
+                    function() {},
+
+                    // handling the promise rejection
+                    function(dismiss) {
+                        if (dismiss === 'timer') {
+                            console.log('I was closed by the timer')
+                        }
+                    }
+            );
+        }
+
+        customHtmlDescBtn() {
+            this.swal({
+                title: '<i>HTML</i> <u>example</u>',
+                type: 'info',
+                html: `You can use <b>bold text</b>, 
+                    <a href="//github.com/leftstick/angular-sweetalert">links</a> 
+                    and other HTML tags`,
+                showCloseButton: true,
+                showCancelButton: true,
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+                cancelButtonText: '<i class="fa fa-thumbs-down"></i>'
+            })
+                .catch(dismiss => {
+                    console.log(`dismissed by '${dismiss}'`);
+                });
+        }
+
+        jqueryAnimation() {
+            this.swal({
+                title: 'jQuery HTML example',
+                html: $('<div>')
+                    .addClass('some-class')
+                    .text('jQuery is everywhere.'),
+                animation: false,
+                customClass: 'animated tada'
+            });
+        }
+
+        warningWithFunctionConfirm() {
+            this.swal({
+                title: 'Are you sure?',
+                text: 'You would not be able to revert this!',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(() => {
+                this.swal(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                );
+            });
+        }
+
+        executeForCancel() {
+            this.swal({
+                title: 'Are you sure?',
+                text: 'You would not be able to revert this!',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
+            }).then(() => {
+                this.swal(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                );
+            }, dismiss => {
+                // dismiss can be 'cancel', 'overlay',
+                // 'close', and 'timer'
+                if (dismiss === 'cancel') {
+                    this.swal(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    );
+                }
+            });
+        }
+
     }
 };

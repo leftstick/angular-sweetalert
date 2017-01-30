@@ -6,6 +6,7 @@ module.exports = function(env = {}) {
     const isDemo = !!env.isDemo;
     return {
         entry: {
+            vendor: resolve(__dirname, 'demo', 'js', 'fw', 'ext', 'main.js'),
             index: resolve(__dirname, 'demo', 'js', 'index.js')
         },
         output: {
@@ -17,7 +18,7 @@ module.exports = function(env = {}) {
         devServer: {
             contentBase: resolve(__dirname, 'build')
         },
-        devtool: isDemo ? '' : '#eval',
+        devtool: isDemo ? '' : '#source-map',
         module: {
             rules: [
                 {
@@ -68,7 +69,13 @@ module.exports = function(env = {}) {
                 warnings: false
             }
         })] : []).concat([
-            new webpack.optimize.CommonsChunkPlugin('common.bundle.js'),
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                'window.jQuery': 'jquery'
+            }),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: ['index', 'vendor']
+            }),
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 inject: 'body',

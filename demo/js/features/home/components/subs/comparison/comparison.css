@@ -37,7 +37,7 @@ comparison .compare .vs-icon {
     left: 50%;
     margin-left: -34px;
     top: 50%;
-    margin-top: -70px;
+    margin-top: -90px;
     z-index: 2;
 }
 
@@ -52,7 +52,7 @@ comparison .showcase {
 }
 
 comparison .showcase pre {
-    margin-bottom: 30px;
+    margin: 15px 0 30px 0;
 }
 
 comparison .showcase h4 {
