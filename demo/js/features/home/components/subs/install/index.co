@@ -4,9 +4,9 @@ export default {
         <h3>Install</h3>
         <div class="install-desc" highlight>
             <strong>npm</strong>
-            <pre><code class="bash">npm install --save angular-h-sweetalert</code></pre>
+            <pre><code class="bash">npm install --save sweetalert2 angular-h-sweetalert</code></pre>
             <strong>bower</strong>
-            <pre><code class="bash">bower install --save angular-h-sweetalert</code></pre>
+            <pre><code class="bash">bower install --save sweetalert2 angular-h-sweetalert</code></pre>
             <br/>
             <blockquote>It is recommended to use <a href="https://webpack.js.org/" target="_blank">webpack</a> to bootstrap dependencies via ES2015 or CommonJS modular</blockquote>
             <strong>download</strong>
