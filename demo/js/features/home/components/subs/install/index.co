@@ -10,7 +10,7 @@ export default {
             <br/>
             <blockquote>It is recommended to use <a href="https://webpack.js.org/" target="_blank">webpack</a> to bootstrap dependencies via ES2015 or CommonJS modular</blockquote>
             <strong>download</strong>
-            <p>Alternatively, download <a href="https://github.com/leftstick/angular-sweetalert/blob/master/dist/ngSweetAlert2.js" target="_blank">ngSweetAlert2.js</a> (<a href="https://github.com/leftstick/angular-sweetalert/blob/master/dist/ngSweetAlert2.min.js" target="_blank">minified version</a>)</p>
+            <p>Alternatively, download <a href="https://raw.githubusercontent.com/leftstick/angular-sweetalert/master/dist/ngSweetAlert2.js" target="_blank">ngSweetAlert2.js</a> (<a href="https://raw.githubusercontent.com/leftstick/angular-sweetalert/master/dist/ngSweetAlert2.min.js" target="_blank">minified version</a>)</p>
         </div>
     `,
     controller: class {
