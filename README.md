@@ -25,13 +25,13 @@ Since [sweetAlert](https://github.com/t4t5/sweetalert) is unmaintained. I choose
 ### from npm ###
 
 ```bash
-npm install --save angular-h-sweetalert
+npm install --save sweetalert2 angular-h-sweetalert
 ```
 
 ### from bower ###
 
 ```bash
-bower install --save angular-h-sweetalert
+bower install --save sweetalert2 angular-h-sweetalert
 ```
 
 ## Import ##
