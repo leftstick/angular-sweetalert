@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --host 0.0.0.0",
     "dist": "rm -rf dist && webpack --config webpack.config.prod.js",
-    "deployDemo": "rm -rf build && webpack --env.isDemo && git checkout gh-pages && rm -f * && mv build/* ."
+    "deployDemo": "rm -rf build && webpack --env.isDemo && git checkout gh-pages && rm -f *.* && mv build/* ."
   },
   "repository": {
     "type": "git",
