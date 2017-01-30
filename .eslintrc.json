@@ -134,7 +134,7 @@
         "eol-last": [1, "unix"],
         "func-names": 0,
         "func-style": [0, "expression", { "allowArrowFunctions": true }],
-        "id-length": [2, {"min": 1, "max": 35, "properties": "never"}],
+        "id-length": [2, {"min": 1, "max": 45, "properties": "never"}],
         "id-match": 0,
         "id-blacklist": 0,
         "indent": [1, 4, {"VariableDeclarator": 1, "SwitchCase": 1}],

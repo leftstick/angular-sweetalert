@@ -2,9 +2,10 @@
   "name": "angular-h-sweetalert",
   "version": "2.0.0",
   "description": "An angular service which expose sweetalert in angular way",
-  "main": "./dist/ngSweetAlert.js",
+  "main": "./dist/ngSweetAlert2.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --host 0.0.0.0"
+    "start": "webpack-dev-server --hot --inline --host 0.0.0.0",
+    "dist": "rm -rf dist && webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "postcss-simple-vars": "^3.0.0",
     "style-loader": "^0.13.1",
     "sweetalert2": "^6.3.2",
+    "unminified-webpack-plugin": "^1.2.0",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
   },

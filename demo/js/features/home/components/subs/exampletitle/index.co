@@ -1,7 +1,7 @@
 import './exampletitle.css';
 export default {
     template: `
-        <h3>More examples</h3>
+        <h3>Usage examples</h3>
     `,
     controller: class {
         constructor() {}

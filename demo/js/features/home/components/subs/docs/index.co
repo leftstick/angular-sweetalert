@@ -1,0 +1,10 @@
+import './docs.css';
+export default {
+    template: `
+        <h3>More Detailed Documentation</h3>
+        <blockquote>If you are looking for more documentation for this sweetAlert2, there is no difference between <code>sweetAlert2</code> and <code>angular-h-sweetalert</code> in specific usage. Which means you can check <a href="https://limonte.github.io/sweetalert2/" target="_blank">official-sweetAlert2-doc</a> for configurations & methods</blockquote>
+    `,
+    controller: class {
+        constructor() {}
+    }
+};

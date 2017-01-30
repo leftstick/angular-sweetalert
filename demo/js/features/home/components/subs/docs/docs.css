@@ -1,0 +1,49 @@
+docs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+docs h3 {
+    width: 100%;
+    font-size: 28px;
+    color: #c7ccd1;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-top: 100px;
+    text-align: center;
+    position: relative;
+}
+
+docs h3::after {
+    content: '';
+    background-color: #e2e5e8;
+    height: 4px;
+    width: 700px;
+    left: 50%;
+    margin-left: -350px;
+    position: absolute;
+    margin-top: -50px;
+    border-radius: 2px;
+}
+
+docs blockquote {
+    width: 725px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    docs h3::after {
+        width: auto;
+        left: 20px;
+        right: 20px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 725px) {
+    docs blockquote {
+        width: 100%;
+    }
+}

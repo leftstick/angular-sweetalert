@@ -1,0 +1,19 @@
+import './install.css';
+export default {
+    template: `
+        <h3>Install</h3>
+        <div class="install-desc" highlight>
+            <strong>npm</strong>
+            <pre><code class="bash">npm install --save angular-h-sweetalert</code></pre>
+            <strong>bower</strong>
+            <pre><code class="bash">bower install --save angular-h-sweetalert</code></pre>
+            <br/>
+            <blockquote>It is recommended to use <a href="https://webpack.js.org/" target="_blank">webpack</a> to bootstrap dependencies via ES2015 or CommonJS modular</blockquote>
+            <strong>download</strong>
+            <p>Alternatively, download <a href="https://github.com/leftstick/angular-sweetalert/blob/master/dist/ngSweetAlert2.js" target="_blank">ngSweetAlert2.js</a> (<a href="https://github.com/leftstick/angular-sweetalert/blob/master/dist/ngSweetAlert2.min.js" target="_blank">minified version</a>)</p>
+        </div>
+    `,
+    controller: class {
+        constructor() {}
+    }
+};

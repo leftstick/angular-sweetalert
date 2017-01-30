@@ -3,14 +3,15 @@ import {isPromise, isObject} from '../helper/object';
 
 export function swalService($q) {
     'ngInject';
-    return function(...args) {
+
+    const wrapper = function(...args) {
 
         const opts = args.slice();
 
         if (isObject(opts[0]) && opts[0].preConfirm) {
             const oldPreConfirm = opts[0].preConfirm;
-            opts[0].preConfirm = function() {
-                return wrapNativePromise($q, oldPreConfirm(), 'preConfirm should return Promise');
+            opts[0].preConfirm = function(...params) {
+                return wrapNativePromise($q, oldPreConfirm(...params), 'preConfirm should return Promise');
             };
         }
 
@@ -21,8 +22,8 @@ export function swalService($q) {
 
         if (isObject(opts[0]) && opts[0].inputValidator) {
             const oldInputValidator = opts[0].inputValidator;
-            opts[0].inputValidator = function() {
-                return wrapNativePromise($q, oldInputValidator(), 'inputValidator should return Promise');
+            opts[0].inputValidator = function(...params) {
+                return wrapNativePromise($q, oldInputValidator(...params), 'inputValidator should return Promise');
             };
         }
 
@@ -34,6 +35,18 @@ export function swalService($q) {
 
         return wrapNativePromise($q, result);
     };
+
+    Object
+        .keys(swal)
+        .forEach(k => {
+            wrapper[k] = swal[k];
+        });
+
+    wrapper.queue = function(...args) {
+        return wrapNativePromise($q, swal.queue(...args), '');
+    };
+
+    return wrapper;
 }
 
 function wrapNativePromise($q, pro, msg) {

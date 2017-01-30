@@ -164,11 +164,143 @@ export default {
     });
 }]);</code></pre>
         </div>
+
+        <div class="example twolines">
+            <div class="left-side">
+                <p>A message with a custom image and CSS animation disabled</p>
+                <button ng-click="$ctrl.messageWithCustomImageAndAnimation()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal({
+        title: 'Sweet!',
+        text: 'Modal with a custom image.',
+        imageUrl: 'https://unsplash.it/400/200',
+        imageWidth: 400,
+        imageHeight: 200,
+        animation: false
+    });
+}]);</code></pre>
+        </div>
+
+        <div class="example twolines">
+            <div class="left-side">
+                <p>A message with custom width, padding and background</p>
+                <button ng-click="$ctrl.messageWithCustomWidthPaddingBackground()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal({
+        title: 'Custom width, padding, background.',
+        width: 600,
+        padding: 100,
+        background: '#fff url(//bit.ly/1Nqn9HU)'
+    });
+}]);</code></pre>
+        </div>
+
+        <div class="example">
+            <div class="left-side">
+                <p>Ajax request example</p>
+                <button ng-click="$ctrl.ajaxRequest()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', '$q', '$timeout', function(swal, $q, $timeout) {
+    swal({
+        title: 'Submit email to run ajax request',
+        input: 'email',
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        showLoaderOnConfirm: true,
+        preConfirm: email => {
+            return $q((resolve, reject) => {
+                $timeout(function() {
+                    if (email === 'taken@example.com') {
+                        return reject('This email is already taken.');
+                    }
+                    resolve();
+                }, 2000);
+            });
+        },
+        allowOutsideClick: false
+    }).then(email => {
+        swal({
+            type: 'success',
+            title: 'Ajax request finished!',
+            html: 'Submitted email: ' + email
+        });
+    });
+}]);</code></pre>
+        </div>
+
+        <div class="example">
+            <div class="left-side">
+                <p>Chaining modals (queue) example</p>
+                <button ng-click="$ctrl.chainingModals()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', function(swal) {
+    swal.setDefaults({
+        input: 'text',
+        confirmButtonText: 'Next &rarr;',
+        showCancelButton: true,
+        animation: false,
+        progressSteps: ['1', '2', '3']
+    });
+
+    const steps = [
+        {
+            title: 'Question 1',
+            text: 'Chaining swal2 modals is easy'
+        },
+        'Question 2',
+        'Question 3'
+    ];
+
+    swal.queue(steps).then(result => {
+        swal.resetDefaults();
+        swal({
+            title: 'All done!',
+            html: 'Your answers: &lt;pre&gt;' +
+                JSON.stringify(result) +
+                '&lt;/pre&gt;',
+            confirmButtonText: 'Lovely!',
+            showCancelButton: false
+        });
+    }, () => {
+        swal.resetDefaults();
+    });
+}]);</code></pre>
+        </div>
+
+        <div class="example">
+            <div class="left-side">
+                <p>Dynamic queue example</p>
+                <button ng-click="$ctrl.dynamicQueue()">Try me!</button>
+            </div>
+            <pre><code class="javascript">app.controller('TestCtrl', ['swal', '$q', function(swal, $q) {
+    swal.queue([{
+        title: 'Your public IP',
+        confirmButtonText: 'Show my public IP',
+        text: 'Your public IP will be received ' +
+            'via AJAX request',
+        showLoaderOnConfirm: true,
+        preConfirm: () => {
+            return $q(resolve => {
+                $.get('https://api.ipify.org?format=json')
+                    .done(data => {
+                        swal.insertQueueStep(data.ip);
+                        resolve();
+                    });
+            });
+        }
+    }]);
+}]);</code></pre>
+        </div>
+
     `,
     controller: class {
         /* @ngInject */
-        constructor(swal) {
+        constructor(swal, $q, $timeout) {
             this.swal = swal;
+            this.$q = $q;
+            this.$timeout = $timeout;
         }
 
         basic() {
@@ -277,6 +409,105 @@ export default {
                     );
                 }
             });
+        }
+
+        messageWithCustomImageAndAnimation() {
+            this.swal({
+                title: 'Sweet!',
+                text: 'Modal with a custom image.',
+                imageUrl: 'https://unsplash.it/400/200',
+                imageWidth: 400,
+                imageHeight: 200,
+                animation: false
+            });
+        }
+
+        messageWithCustomWidthPaddingBackground() {
+            this.swal({
+                title: 'Custom width, padding, background.',
+                width: 600,
+                padding: 100,
+                background: '#fff url(//bit.ly/1Nqn9HU)'
+            });
+        }
+
+        ajaxRequest() {
+            this.swal({
+                title: 'Submit email to run ajax request',
+                input: 'email',
+                showCancelButton: true,
+                confirmButtonText: 'Submit',
+                showLoaderOnConfirm: true,
+                preConfirm: email => {
+                    return this.$q((resolve, reject) => {
+                        this.$timeout(function() {
+                            if (email === 'taken@example.com') {
+                                return reject('This email is already taken.');
+                            }
+                            resolve();
+                        }, 2000);
+                    });
+                },
+                allowOutsideClick: false
+            }).then(email => {
+                this.swal({
+                    type: 'success',
+                    title: 'Ajax request finished!',
+                    html: 'Submitted email: ' + email
+                });
+            });
+        }
+
+        chainingModals() {
+            this.swal.setDefaults({
+                input: 'text',
+                confirmButtonText: 'Next &rarr;',
+                showCancelButton: true,
+                animation: false,
+                progressSteps: ['1', '2', '3']
+            });
+
+            const steps = [
+                {
+                    title: 'Question 1',
+                    text: 'Chaining swal2 modals is easy'
+                },
+                'Question 2',
+                'Question 3'
+            ];
+
+            this.swal.queue(steps).then(result => {
+                this.swal.resetDefaults();
+                this.swal({
+                    title: 'All done!',
+                    html: 'Your answers: <pre>' +
+                        JSON.stringify(result) +
+                        '</pre>',
+                    confirmButtonText: 'Lovely!',
+                    showCancelButton: false
+                });
+            }, () => {
+                this.swal.resetDefaults();
+            });
+        }
+
+        dynamicQueue() {
+            this.swal.queue([{
+                title: 'Your public IP',
+                confirmButtonText: 'Show my public IP',
+                text: 'Your public IP will be received ' +
+                    'via AJAX request',
+                showLoaderOnConfirm: true,
+                preConfirm: () => {
+                    return this.$q(resolve => {
+                        $.get('https://api.ipify.org?format=json')
+                            .done(data => {
+                                this.swal.insertQueueStep(data.ip);
+                                resolve();
+                            });
+                    });
+                }
+            }]);
         }
 
     }

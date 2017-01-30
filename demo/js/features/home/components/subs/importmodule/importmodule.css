@@ -1,0 +1,53 @@
+importmodule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+importmodule h3 {
+    width: 100%;
+    font-size: 28px;
+    color: #c7ccd1;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-top: 100px;
+    text-align: center;
+    position: relative;
+}
+
+importmodule h3::after {
+    content: '';
+    background-color: #e2e5e8;
+    height: 4px;
+    width: 700px;
+    left: 50%;
+    margin-left: -350px;
+    position: absolute;
+    margin-top: -50px;
+    border-radius: 2px;
+}
+
+importmodule .import-desc {
+    width: 725px;
+}
+
+importmodule .import-desc strong {
+    margin: 10px 0;
+    display: block;
+}
+
+@media screen and (max-width: 700px) {
+    importmodule h3::after {
+        width: auto;
+        left: 20px;
+        right: 20px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 725px) {
+    importmodule .import-desc {
+        width: 100%;
+    }
+}

@@ -1,0 +1,28 @@
+import './importmodule.css';
+export default {
+    template: `
+        <h3>Import</h3>
+        <div class="import-desc" highlight>
+            <strong>ES2015</strong>
+            <pre><code class="javascript">import 'sweetalert2/dist/sweetalert2.min.css';
+import {ngSweetAlert2} from 'angular-h-sweetalert';</code></pre>
+            <strong>CommonJS</strong>
+            <pre><code class="javascript">require('sweetalert2/dist/sweetalert2.min.css');
+const {ngSweetAlert2} = require('angular-h-sweetalert');</code></pre>
+            <br/>
+            <blockquote>It is recommended to use <a href="https://webpack.js.org/" target="_blank">webpack</a> to bootstrap dependencies via ES2015 or CommonJS modular</blockquote>
+            <strong>script</strong>
+            <pre><code class="html">&lt;link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css"&gt;
+            <br/>
+&lt;script type="text/javascript" src="node_modules/angular/angular.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="node_modules/sweetalert2/dist/sweetalert2.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="node_modules/angular-h-sweetalert/dist/ngSweetAlert2.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+    var ngSweetAlert2 = window.ngSweetAlert2;
+&lt;/script&gt;</code></pre>
+        </div>
+    `,
+    controller: class {
+        constructor() {}
+    }
+};
