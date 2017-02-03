@@ -1,13 +1,15 @@
 const {resolve} = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 module.exports = function(env = {}) {
     const isDemo = !!env.isDemo;
     return {
         entry: {
+            index: resolve(__dirname, 'demo', 'js', 'index.js'),
             vendor: resolve(__dirname, 'demo', 'js', 'fw', 'ext', 'main.js'),
-            index: resolve(__dirname, 'demo', 'js', 'index.js')
+            serviceworker: resolve(__dirname, 'demo', 'js', 'fw', 'ext', 'serviceworker.js')
         },
         output: {
             path: resolve(__dirname, 'build'),
@@ -69,12 +71,22 @@ module.exports = function(env = {}) {
                 warnings: false
             }
         })] : []).concat([
+            new webpack.DefinePlugin({
+                'process.env': {
+                    DEBUG: !isDemo
+                }
+            }),
+            new ServiceWorkerWebpackPlugin({
+                entry: resolve(__dirname, 'demo', 'js', 'sw.js'),
+                publicPath: isDemo ? '/angular-sweetalert/' : '/'
+            }),
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 'window.jQuery': 'jquery'
             }),
             new webpack.optimize.CommonsChunkPlugin({
-                name: ['index', 'vendor']
+                name: 'commons',
+                chunks: ['serviceworker', 'vendor', 'index']
             }),
             new HtmlWebpackPlugin({
                 filename: 'index.html',

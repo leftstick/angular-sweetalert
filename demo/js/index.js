@@ -2,11 +2,13 @@ import angular from 'angular';
 import {pluck} from './fw/helper/object';
 import {declareFeatures, declareDirectives, declareComponents, declareRunners, declareFilters} from './fw/helper/ngDeclare';
 import Extensions from './fw/ext/main';
+import worker from './fw/ext/serviceworker';
 import Things from './features/main';
 
 class DemoApp {
 
     constructor() {
+        worker();
         this.appName = 'angular-h-sweetalert';
         this.features = Things.filter(t => t.type === 'feature' && t.name);
     }
