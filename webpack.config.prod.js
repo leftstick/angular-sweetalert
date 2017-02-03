@@ -33,7 +33,12 @@ module.exports = {
     },
     externals: {
         angular: 'angular',
-        sweetalert2: 'sweetalert2'
+        sweetalert2: {
+            commonjs2: 'sweetalert2',
+            commonjs: 'sweetalert2',
+            amd: 'sweetalert2',
+            root: 'swal'
+        }
     },
     resolve: {
         extensions: [

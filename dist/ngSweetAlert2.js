@@ -4,7 +4,7 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["angular", "sweetalert2"], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("angular"), require("sweetalert2")) : factory(root["angular"], root["sweetalert2"]);
+		var a = typeof exports === 'object' ? factory(require("angular"), require("sweetalert2")) : factory(root["angular"], root["swal"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_3__) {
