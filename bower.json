@@ -3,7 +3,6 @@
   "homepage": "https://github.com/leftstick/angular-sweetalert",
   "description": "An angular service which expose sweetalert in angular way",
   "main": [
-    "dist/ngSweetAlert2.js",
     "dist/ngSweetAlert2.min.js"
   ],
   "keywords": [
